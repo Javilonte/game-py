@@ -1,6 +1,6 @@
 import pygame
 import sys
-
+from ui.menu import MainMenu
 WIDTH, HEIGHT = 600, 400
 SPRITE_WIDTH, SPRITE_HEIGHT = 50, 50 
 
@@ -33,9 +33,9 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-player_image = pygame.image.load('player.png').convert_alpha()
-entity_image = pygame.image.load('player.png').convert_alpha()
-background = pygame.image.load('background.png').convert()
+player_image = pygame.image.load('assets/images/player.png').convert_alpha()
+entity_image = pygame.image.load('assets/images/player.png').convert_alpha()
+background = pygame.image.load('assets/images/background.png').convert()
 
 player_obj = GameObject(player_image, 10, 5)
 entities = []
@@ -51,6 +51,8 @@ while True:
             pygame.quit()
             sys.exit()
 
+    main_menu = MainMenu()
+    screen.blit(main_menu.background, (0,0))
     # Movimiento jugador
     keys = pygame.key.get_pressed()
     if keys[pygame.K_UP]:
