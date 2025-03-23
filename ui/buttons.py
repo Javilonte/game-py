@@ -13,3 +13,7 @@ class Button:
         text_surface = self.fond.render(self.text, true, (0,0,0))
         text_rect = text_surface.get_rect(center=self.rect.center)
         surface.blit(text_surface, text_rect)
+
+    def check_click(self, mouse_pos):
+        if self.rect.collidepoint(mouse_pos):
+            self.callback()
