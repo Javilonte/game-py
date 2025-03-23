@@ -53,7 +53,10 @@ while True:
 
     main_menu = MainMenu()
     screen.blit(main_menu.background, (0,0))
-    # Movimiento jugador
+#Not sure how to directly use the butons
+    create_buttons = MainMenu.create_buttons()
+    screen.blit(create_buttons(text_rect))
+    
     keys = pygame.key.get_pressed()
     if keys[pygame.K_UP]:
         player_obj.move(up=True)
